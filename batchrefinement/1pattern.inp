@@ -1,0 +1,707 @@
+'--------------------------------------------------------------  
+'Input File for simple Rietveld Refinement  
+'Replace any $, # or text after ---> as needed  
+'Use Ta-> button to save/send to topas; Ta button to launch topas; run in topas with red arrow  
+'--------------------------------------------------------------  
+  
+'--------------------------------------------------------------  
+'General information about refinement here  
+'Remove commented lines as required  
+'--------------------------------------------------------------  
+iters 100000  
+chi2_convergence_criteria 0.0001  
+'do_errors  
+  
+'--------------------------------------------------------------  
+'Information on datafile etc here  
+'Check that default weighting is appropriate for your data  
+'--------------------------------------------------------------  
+xdd dq_pap217_roi146603_164528.xy 
+	x_calculation_step = Yobs_dx_at(Xo); convolution_step 4  
+	bkg   @   1.121256` -0.409055787`  0.135162192`  0.0797349559` -0.093934086`  0.0227490204` -0.00361905853` -0.0211421419`  0.0339675284` -0.0096987994` -0.0168101815`  0.019794918` -0.0058776097` -0.00209539477`  0.00560068754`
+	  
+	lam ymin_on_ymax 0.0001 la 1.0 lo 0.7293188 lh 0.0   
+	   
+	LP_Factor( 90) 'change the LP correction  or lh value if required   
+	  
+	Zero_Error(!zero, 0.00268533807)   
+	  
+	prm      !p1  0.0190169677 min 0           
+    prm      !p2  0.00897507937 min 0                         
+    prm      !p3  0.0892799766 min 0                          
+    prm      !p4  0.0587953844 min 0                         
+                                                                         
+    lor_fwhm =   p1 Tan(Th) + p2/Cos(Th) ;                                  
+    gauss_fwhm = p3 Tan(Th) + p4/Cos(Th) ;   
+      
+   start_X 4   
+   finish_X 40   
+ 
+''{{{ Cellulose 1 
+str   
+		phase_name Cellulose_Ibeta_1    
+		   
+      MVW( 636.467,0, 84.815`)   
+			    
+      scale     @       6.8827748e-08` '' 1.49350899e-07  
+        
+      space_group "P1121"  
+		  
+   
+		a          8.321397_LIMIT_MAX_8.4 min 8.2 max 8.4   '' 8.340720 
+		b          7.782498_LIMIT_MIN_7.60511749 min 7.6 max 7.9 '' 7.797595  
+		c          10.299835_LIMIT_MIN_10.1 min 10.1 max 10.3 ''10.242790  
+		al   90             
+		be   90         
+		ga            98.07123_LIMIT_MIN_97.671227 min 94 max 100  ''98.49198 
+		   
+		volume   660.423
+		   
+		CS_G(    D0G_1, 2.96059649` )  
+        CS_L(    D0L_1, 887.436415`_LIMIT_MIN_0.3 )  
+        prm Dvol_1 = 1/Voigt_Integral_Breadth_GL(1/D0G_1, 1/D0L_1);:  2.77192008`
+
+ 
+		prm  !beqC  2.3 min 0.5 max 10    
+		prm  !beqO  1.2 min 0.5 max 10    
+		prm  !beqH  3 min 0.5 max 10    
+		    
+        
+		site C11    x 0.014         y -0.042        z 0.0433        occ C    1          beq =beqC;       
+		site H11    x 0.1382        y -0.0188       z 0.0598        occ H    1          beq =beqH;       
+		site C21    x -0.026        y -0.184        z -0.0516       occ C    1          beq =beqC;       
+		site H21    x -0.1508       y -0.2177       z -0.0546       occ H    1          beq =beqH;       
+		site C31    x 0.040         y -0.137        z -0.1848       occ C    1          beq =beqC;       
+		site H31    x 0.1667        y -0.1323       z -0.1840       occ H    1          beq =beqH;       
+		site C41    x -0.007        y 0.030         z -0.2250       occ C    1          beq =beqC;       
+		site H41    x -0.1316       y 0.0176        z -0.2425       occ H    1          beq =beqH;       
+		site C51    x 0.026         y 0.159         z -0.1232       occ C    1          beq =beqC;       
+		site H51    x 0.1507        y 0.1821        z -0.1090       occ H    1          beq =beqH;       
+		site C61    x -0.047        y 0.319         z -0.153        occ C    1          beq =beqC;       
+		site H61A   x -0.1672       y 0.2959        z -0.1778       occ H    1          beq =beqH;       
+		site H61B   x -0.0407       y 0.3872        z -0.0765       occ H    1          beq =beqH;       
+		site O21    x 0.061         y -0.314        z -0.0003       occ O    1          beq =beqO;       
+		site O31    x -0.027        y -0.261        z -0.2759       occ O    1          beq =beqO;       
+		site O11    x 0.079         y 0.086         z -0.3424       occ O    1          beq =beqO;       
+		site O51    x -0.056        y 0.099         z -0.0053       occ O    1          beq =beqO;       
+		site O61    x 0.048         y 0.403         z -0.254        occ O    1          beq =beqO;       
+		site C12    x 0.533         y 0.455         z 0.3043        occ C    1          beq =beqC;       
+		site H12    x 0.6577        y 0.4616        z 0.3200        occ H    1          beq =beqH;       
+		site C22    x 0.475         y 0.3178        z 0.2094        occ C    1          beq =beqC;       
+		site H22    x 0.3480        y 0.3058        z 0.2052        occ H    1          beq =beqH;       
+		site C32    x 0.545         y 0.363         z 0.0765        occ C    1          beq =beqC;       
+		site H32    x 0.6716        y 0.3753        z 0.0793        occ H    1          beq =beqH;       
+		site C42    x 0.482         y 0.526         z 0.0375        occ C    1          beq =beqC;       
+		site H42    x 0.3561        y 0.5139        z 0.0289        occ H    1          beq =beqH;       
+		site C52    x 0.541         y 0.6574        z 0.1388        occ C    1          beq =beqC;       
+		site H52    x 0.6670        y 0.6830        z 0.1370        occ H    1          beq =beqH;       
+		site C62    x 0.452         y 0.815         z 0.1125        occ C    1          beq =beqC;       
+		site H62A   x 0.3341        y 0.7843        z 0.0847        occ H    1          beq =beqH;       
+		site H62B   x 0.4491        y 0.8778        z 0.1916        occ H    1          beq =beqH;       
+		site O22    x 0.528         y 0.166         z 0.2520        occ O    1          beq =beqO;       
+		site O32    x 0.486         y 0.233         z -0.0081       occ O    1          beq =beqO;       
+		site O12    x 0.563         y 0.586         z -0.0806       occ O    1          beq =beqO;       
+		site O52    x 0.485         y 0.6070        z 0.2639        occ O    1          beq =beqO;       
+		site O62    x 0.542         y 0.914         z 0.017         occ O    1          beq =beqO;    
+''}}}  
+    
+''{{{ Cellulose 2 
+str  
+	  
+		phase_name Cellulose_Ibeta_2  
+		 
+		prm perc2  15.1854812` min 0 max 100
+   		Known_Weight_Percent(perc2) 
+      
+    	space_group "P1121"  
+			a             8.331432_LIMIT_MIN_8.14857588 min 7.1 max 8.6   ''8.310689 
+			b             8.099999_LIMIT_MIN_7.9194515 min 7.20 max 8.10 ''8.096756 
+			c             10.330648_LIMIT_MAX_10.4 min 10.0 max 10.4      ''10.32865 
+			al   90            
+			be   90        
+			ga           94.00000_LIMIT_MIN_94 min 94 max 108              ''94.00156 
+ 
+			volume  695.461
+    
+        
+        CS_G(   D0G_2, 10000`_LIMIT_MIN_0.3 )  
+		CS_L(   D0L_2, 12.880102`_LIMIT_MIN_0.3 )  
+		prm Dvol_2 = 1/Voigt_Integral_Breadth_GL(1/D0G_2, 1/D0L_2);:  8.20303619`
+   
+        Preferred_Orientation(ca2, 0.380144199` min 0 max 2, anga_2, 0 0 1) 
+		''PO_Two_Directions(ca1_2, 0.71646956_LIMIT_MIN_0 min 0 max 2, ang1_2, 1 0 0,  
+		''				ca2_2, 0.386733488 min 0 max 2, ang2_2, 0 0 1,  
+		''				w1c_2, 0.0653514069_LIMIT_MIN_0.01 min 1e-2 max 1)  
+                            
+		prm  !beqC2  2.3 min 0.5 max 10   
+		prm  !beqO2  1.2 min 0.5 max 10   
+		prm  !beqH2  3 min 0.5 max 10  
+    
+		site C11    x 0.014         y -0.042        z 0.0433        occ C    1          beq =beqC2;     
+		site H11    x 0.1382        y -0.0188       z 0.0598        occ H    1          beq =beqH2;     
+		site C21    x -0.026        y -0.184        z -0.0516       occ C    1          beq =beqC2;     
+		site H21    x -0.1508       y -0.2177       z -0.0546       occ H    1          beq =beqH2;     
+		site C31    x 0.040         y -0.137        z -0.1848       occ C    1          beq =beqC2;     
+		site H31    x 0.1667        y -0.1323       z -0.1840       occ H    1          beq =beqH2;     
+		site C41    x -0.007        y 0.030         z -0.2250       occ C    1          beq =beqC2;     
+		site H41    x -0.1316       y 0.0176        z -0.2425       occ H    1          beq =beqH2;     
+		site C51    x 0.026         y 0.159         z -0.1232       occ C    1          beq =beqC2;     
+		site H51    x 0.1507        y 0.1821        z -0.1090       occ H    1          beq =beqH2;     
+		site C61    x -0.047        y 0.319         z -0.153        occ C    1          beq =beqC2;     
+		site H61A   x -0.1672       y 0.2959        z -0.1778       occ H    1          beq =beqH2;     
+		site H61B   x -0.0407       y 0.3872        z -0.0765       occ H    1          beq =beqH2;     
+		site O21    x 0.061         y -0.314        z -0.0003       occ O    1          beq =beqO2;     
+		site O31    x -0.027        y -0.261        z -0.2759       occ O    1          beq =beqO2;     
+		site O11    x 0.079         y 0.086         z -0.3424       occ O    1          beq =beqO2;     
+		site O51    x -0.056        y 0.099         z -0.0053       occ O    1          beq =beqO2;     
+		site O61    x 0.048         y 0.403         z -0.254        occ O    1          beq =beqO2;     
+		site C12    x 0.533         y 0.455         z 0.3043        occ C    1          beq =beqC2;     
+		site H12    x 0.6577        y 0.4616        z 0.3200        occ H    1          beq =beqH2;     
+		site C22    x 0.475         y 0.3178        z 0.2094        occ C    1          beq =beqC2;     
+		site H22    x 0.3480        y 0.3058        z 0.2052        occ H    1          beq =beqH2;     
+		site C32    x 0.545         y 0.363         z 0.0765        occ C    1          beq =beqC2;     
+		site H32    x 0.6716        y 0.3753        z 0.0793        occ H    1          beq =beqH2;     
+		site C42    x 0.482         y 0.526         z 0.0375        occ C    1          beq =beqC2;     
+		site H42    x 0.3561        y 0.5139        z 0.0289        occ H    1          beq =beqH2;     
+		site C52    x 0.541         y 0.6574        z 0.1388        occ C    1          beq =beqC2;     
+		site H52    x 0.6670        y 0.6830        z 0.1370        occ H    1          beq =beqH2;     
+		site C62    x 0.452         y 0.815         z 0.1125        occ C    1          beq =beqC2;     
+		site H62A   x 0.3341        y 0.7843        z 0.0847        occ H    1          beq =beqH2;     
+		site H62B   x 0.4491        y 0.8778        z 0.1916        occ H    1          beq =beqH2;     
+		site O22    x 0.528         y 0.166         z 0.2520        occ O    1          beq =beqO2;     
+		site O32    x 0.486         y 0.233         z -0.0081       occ O    1          beq =beqO2;     
+		site O12    x 0.563         y 0.586         z -0.0806       occ O    1          beq =beqO2;     
+		site O52    x 0.485         y 0.6070        z 0.2639        occ O    1          beq =beqO2; 
+		site O62    x 0.542         y 0.914         z 0.017         occ O    1          beq =beqO2; 
+	 
+''}}} 
+	 
+''{{{ Weddelite 
+	hkl_Is   
+	  	phase_name "Weddellite"   
+ 
+		a    !aWedd   12.380654  
+		b    !aWedd   12.380654  
+		c         7.362757  
+		al 90          
+		be 90          
+		ga 90          
+		volume  1128.568 
+		  prm                  !p31  1.21311375e-40_LIMIT_MIN_0 min 0 max 1e-15   
+		  prm                  !p32  1e-15_LIMIT_MIN_0 min 0 max 1e-15   
+		  prm                  !p33  3.75485797e-21_LIMIT_MIN_0 min 0 max 1e-15   
+		  prm                  !p34  7.56978262e-21_LIMIT_MIN_0 min 0 max 1e-15   
+ 
+		  gauss_fwhm = p31 Tan(Th) + p32 / Cos(Th) ;   
+		  lor_fwhm = p33 Tan(Th) + p34 / Cos(Th) ;   
+ 
+		space_group "I4/m"  
+		''load hkl_m_d_th2 I   
+		load hkl_m_d_th2 I penalty  
+		{  
+			   1   1   0   4    8.754444       4.77460      I_Penalty(@,   1e-15`_LIMIT_MIN_1e-15 )  
+			   1   0   1   8    6.328265       6.60687      I_Penalty(@,   1e-15`_LIMIT_MIN_1e-15)  
+			   2   0   0   4    6.190327       6.75426      I_Penalty(@,   4.13070498e-05`_LIMIT_MIN_1e-15 )  
+			   2   1   1   8    4.425185       9.45369      I_Penalty(@,   1.35648808e-05`_LIMIT_MIN_1e-15 )  
+			   2  -1   1   8    4.425185       9.45369      I_Penalty(@,   1.35648808e-05`_LIMIT_MIN_1e-15 )  
+			   2   2   0   4    4.377222       9.55752      I_Penalty(@,   1e-15`_LIMIT_MIN_1e-15 )  
+			   3   1   0   4    3.915107      10.68874      I_Penalty(@,  6.7626481e-06`_LIMIT_MIN_1e-15 )  
+			   3  -1   0   4    3.915107      10.68874      I_Penalty(@,  6.7626481e-06`_LIMIT_MIN_1e-15 )  
+			   0   0   2   2    3.681378      11.36953      I_Penalty(@,  1.68590615e-05`_LIMIT_MIN_1e-15 )  
+			   3   0   1   8    3.599952      11.62757      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   1   1   2   8    3.393540      12.33748      I_Penalty(@,  2.88490433e-06`_LIMIT_MIN_1e-15 )  
+			   2   0   2   8    3.164132      13.23584      I_Penalty(@,  2.38277211e-05`_LIMIT_MIN_1e-15 )  
+			   3   2   1   8    3.111982      13.45866      I_Penalty(@,  3.98226288e-06`_LIMIT_MIN_1e-15 )  
+			   3  -2   1   8    3.111982      13.45866      I_Penalty(@,  3.98226288e-06`_LIMIT_MIN_1e-15 )  
+			   4   0   0   4    3.095163      13.53213      I_Penalty(@,  2.2922112e-05`_LIMIT_MIN_1e-15 )  
+			   3   3   0   4    2.918148      14.35719      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )   
+			   2   2   2   8    2.817419      14.87335      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   4   1   1   8    2.780413      15.07244      I_Penalty(@,  5.75107828e-05`_LIMIT_MIN_1e-15 )  
+			   4  -1   1   8    2.780413      15.07244      I_Penalty(@,  5.75107828e-05`_LIMIT_MIN_1e-15 )  
+			   4   2   0   4    2.768398      15.13824      I_Penalty(@,  2.92736614e-06`_LIMIT_MIN_1e-15 )  
+			   4  -2   0   4    2.768398      15.13824      I_Penalty(@,  2.92736614e-06`_LIMIT_MIN_1e-15 )  
+			   3   1   2   8    2.681951      15.62919      I_Penalty(@,  7.70279135e-06`_LIMIT_MIN_1e-15 )  
+			   3  -1   2   8    2.681951      15.62919      I_Penalty(@,  7.70279135e-06`_LIMIT_MIN_1e-15 )  
+			   5   1   0   4    2.428046      17.27545      I_Penalty(@,  1.12658672e-05`_LIMIT_MIN_1e-15 )  
+			   5  -1   0   4    2.428046      17.27545      I_Penalty(@,  1.12658672e-05`_LIMIT_MIN_1e-15 )  
+			   1   0   3   8    2.407407      17.42471      I_Penalty(@,  1.86323109e-05`_LIMIT_MIN_1e-15 )  
+			   4   0   2   8    2.369092      17.70876      I_Penalty(@,  1.74488635e-05`_LIMIT_MIN_1e-15 )  
+			   4   3   1   8    2.346963      17.87709      I_Penalty(@,  9.82670497e-06`_LIMIT_MIN_1e-15 )  
+			   5   0   1   8    2.346963      17.87709      I_Penalty(@,  9.82670497e-06`_LIMIT_MIN_1e-15 )  
+			   4  -3   1   8    2.346963      17.87709      I_Penalty(@,  9.82670497e-06`_LIMIT_MIN_1e-15 )  
+			   3   3   2   8    2.286836      18.35114      I_Penalty(@,  1.27168273e-05`_LIMIT_MIN_1e-15 )  
+			   2   1   3   8    2.243708      18.70702      I_Penalty(@,  2.39039954e-05`_LIMIT_MIN_1e-15 )  
+			   2  -1   3   8    2.243708      18.70702      I_Penalty(@,  2.39039954e-05`_LIMIT_MIN_1e-15 )  
+			   4   2   2   8    2.212592      18.97250      I_Penalty(@,  7.35806271e-06`_LIMIT_MIN_1e-15 )  
+			   4  -2   2   8    2.212592      18.97250      I_Penalty(@,  7.35806271e-06`_LIMIT_MIN_1e-15 )  
+			   5   2   1   8    2.194533      19.13009      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   5  -2   1   8    2.194533      19.13009      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   4   4   0   4    2.188611      19.18234      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   5   3   0   4    2.123265      19.77855      I_Penalty(@,  9.93452506e-06`_LIMIT_MIN_1e-15 )  
+			   5  -3   0   4    2.123265      19.77855      I_Penalty(@,  9.93452506e-06`_LIMIT_MIN_1e-15 )  
+			   3   0   3   8    2.109422      19.90966      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   6   0   0   4    2.063442      20.35798      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   5   1   2   8    2.026891      20.72912      I_Penalty(@,  4.70920718e-06`_LIMIT_MIN_1e-15 )  
+			   5  -1   2   8    2.026891      20.72912      I_Penalty(@,  4.70920718e-06`_LIMIT_MIN_1e-15 )  
+			   3   2   3   8    1.996679      21.04632      I_Penalty(@,  3.51417416e-06`_LIMIT_MIN_1e-15 )  
+			   3  -2   3   8    1.996679      21.04632      I_Penalty(@,  3.51417416e-06`_LIMIT_MIN_1e-15 )  
+			   6   1   1   8    1.961787      21.42503      I_Penalty(@,  1.12269874e-05`_LIMIT_MIN_1e-15 )  
+			   6  -1   1   8    1.961787      21.42503      I_Penalty(@,  1.12269874e-05`_LIMIT_MIN_1e-15 )  
+			   6   2   0   4    1.957553      21.47192      I_Penalty(@,  6.14156508e-06`_LIMIT_MIN_1e-15 )  
+			   6  -2   0   4    1.957553      21.47192      I_Penalty(@,  6.14156508e-06`_LIMIT_MIN_1e-15 )  
+			   4   1   3   8    1.900275      22.12717      I_Penalty(@,  1.73359935e-05`_LIMIT_MIN_1e-15 )  
+			   4  -1   3   8    1.900275      22.12717      I_Penalty(@,  1.73359935e-05`_LIMIT_MIN_1e-15 )  
+			   4   4   2   8    1.881261      22.35367      I_Penalty(@,  2.65452774e-06`_LIMIT_MIN_1e-15 )  
+			   5   4   1   8    1.870123      22.48854      I_Penalty(@,  1.78818132e-06`_LIMIT_MIN_1e-15 )  
+			   5  -4   1   8    1.870123      22.48854      I_Penalty(@,  1.78818132e-06`_LIMIT_MIN_1e-15 )  
+			   0   0   4   2    1.840689      22.85295      I_Penalty(@,  1.05618153e-05`_LIMIT_MIN_1e-15 )  
+			   5   3   2   8    1.839273      22.87079      I_Penalty(@,  1.04001857e-05`_LIMIT_MIN_1e-15 )  
+			   5  -3   2   8    1.839273      22.87079      I_Penalty(@,  1.04001857e-05`_LIMIT_MIN_1e-15 )  
+			   1   1   4   8    1.801304      23.35959      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   6   0   2   8    1.799976      23.37706      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   6   3   1   8    1.790213      23.50636      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   6  -3   1   8    1.790213      23.50636      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   2   0   4   8    1.764343      23.85606      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   5   5   0   4    1.750889      24.04210      I_Penalty(@,  2.25178561e-06`_LIMIT_MIN_1e-15 )  
+			   7   1   0   4    1.750889      24.04210      I_Penalty(@,  2.25178561e-06`_LIMIT_MIN_1e-15 )  
+			   7  -1   0   4    1.750889      24.04210      I_Penalty(@,  2.25178561e-06`_LIMIT_MIN_1e-15 )  
+			   4   3   3   8    1.743102      24.15111      I_Penalty(@,  2.29073828e-06`_LIMIT_MIN_1e-15 )  
+			   5   0   3   8    1.743102      24.15111      I_Penalty(@,  2.29073828e-06`_LIMIT_MIN_1e-15 )  
+			   4  -3   3   8    1.743102      24.15111      I_Penalty(@,  2.29073828e-06`_LIMIT_MIN_1e-15 )  
+			   6   2   2   8    1.728392      24.35980      I_Penalty(@,  5.07346408e-06`_LIMIT_MIN_1e-15 )  
+			   6  -2   2   8    1.728392      24.35980      I_Penalty(@,  5.07346408e-06`_LIMIT_MIN_1e-15 )  
+			   7   0   1   8    1.719742      24.48422      I_Penalty(@,  9.46856371e-06`_LIMIT_MIN_1e-15 )  
+			   6   4   0   4    1.716888      24.52555      I_Penalty(@,  9.99179022e-06`_LIMIT_MIN_1e-15 )  
+			   6  -4   0   4    1.716888      24.52555      I_Penalty(@,  9.99179022e-06`_LIMIT_MIN_1e-15 )  
+			   2   2   4   8    1.696770      24.82095      I_Penalty(@,  1.55967306e-05`_LIMIT_MIN_1e-15 )  
+			   5   2   3   8    1.677852      25.10534      I_Penalty(@,  7.22976249e-06`_LIMIT_MIN_1e-15 )  
+			   5  -2   3   8    1.677852      25.10534      I_Penalty(@,  7.22976249e-06`_LIMIT_MIN_1e-15 )  
+			   3   1   4   8    1.665771      25.29043      I_Penalty(@,  6.26137152e-06`_LIMIT_MIN_1e-15 )  
+			   3  -1   4   8    1.665771      25.29043      I_Penalty(@,  6.26137152e-06`_LIMIT_MIN_1e-15 )  
+			   7   2   1   8    1.656988      25.42672      I_Penalty(@,  5.49244785e-06`_LIMIT_MIN_1e-15 )  
+			   7  -2   1   8    1.656988      25.42672      I_Penalty(@,  5.49244785e-06`_LIMIT_MIN_1e-15 )  
+			   7   3   0   4    1.625660      25.92517      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   7  -3   0   4    1.625660      25.92517      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   4   0   4   8    1.582066      26.65251      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   5   5   2   8    1.581166      26.66796      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   7   1   2   8    1.581166      26.66796      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   7  -1   2   8    1.581166      26.66796      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   6   1   3   8    1.566698      26.91884      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   6  -1   3   8    1.566698      26.91884      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   3   3   4   8    1.556849      27.09238      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   6   4   2   8    1.555991      27.10760      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   6  -4   2   8    1.555991      27.10760      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   6   5   1   8    1.549671      27.22027      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   6  -5   1   8    1.549671      27.22027      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   8   0   0   4    1.547582      27.25773      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   4   2   4   8    1.532800      27.52575      I_Penalty(@,  1.14613765e-07`_LIMIT_MIN_1e-15 )  
+			   4  -2   4   8    1.532800      27.52575      I_Penalty(@,  1.14613765e-07`_LIMIT_MIN_1e-15 )  
+			   5   4   3   8    1.518810      27.78434      I_Penalty(@,  4.78547245e-06`_LIMIT_MIN_1e-15 )  
+			   5  -4   3   8    1.518810      27.78434      I_Penalty(@,  4.78547245e-06`_LIMIT_MIN_1e-15 )  
+			   7   4   1   8    1.503283      28.07719      I_Penalty(@,  5.54183448e-06`_LIMIT_MIN_1e-15 )  
+			   8   1   1   8    1.503283      28.07719      I_Penalty(@,  5.54183448e-06`_LIMIT_MIN_1e-15 )  
+			   8  -1   1   8    1.503283      28.07719      I_Penalty(@,  5.54183448e-06`_LIMIT_MIN_1e-15 )  
+			   7  -4   1   8    1.503283      28.07719      I_Penalty(@,  5.54183448e-06`_LIMIT_MIN_1e-15 )  
+			   8   2   0   4    1.501375      28.11360      I_Penalty(@,  5.52861198e-06`_LIMIT_MIN_1e-15 )  
+			   8  -2   0   4    1.501375      28.11360      I_Penalty(@,  5.52861198e-06`_LIMIT_MIN_1e-15 )  
+			   7   3   2   8    1.487118      28.38875      I_Penalty(@,  4.89679439e-06`_LIMIT_MIN_1e-15 )  
+			   7  -3   2   8    1.487118      28.38875      I_Penalty(@,  4.89679439e-06`_LIMIT_MIN_1e-15 )  
+			   6   3   3   8    1.475062      28.62571      I_Penalty(@,  5.89887721e-07`_LIMIT_MIN_1e-15 )  
+			   6  -3   3   8    1.475062      28.62571      I_Penalty(@,  5.89887721e-07`_LIMIT_MIN_1e-15 )  
+			   5   1   4   8    1.466832      28.78976      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   5  -1   4   8    1.466832      28.78976      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   1   0   5   8    1.462245      28.88204      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   6   6   0   4    1.459074      28.94617      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   7   5   0   4    1.439222      29.35435      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   7  -5   0   4    1.439222      29.35435      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   7   0   3   8    1.434888      29.44502      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   8   0   2   8    1.426649      29.61895      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   2   1   5   8    1.423082      29.69489      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   2  -1   5   8    1.423082      29.69489      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   8   3   1   8    1.421773      29.72286      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   8  -3   1   8    1.421773      29.72286      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   4   4   4   8    1.408709      30.00493      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+			   7   2   3   8    1.397827      30.24408      I_Penalty(@,  2.66722319e-06`_LIMIT_MIN_1e-15 )  
+			   7  -2   3   8    1.397827      30.24408      I_Penalty(@,  2.66722319e-06`_LIMIT_MIN_1e-15 )  
+			   5   3   4   8    1.390818      30.40017      I_Penalty(@,  4.8056972e-06`_LIMIT_MIN_1e-15 )  
+			   5  -3   4   8    1.390818      30.40017      I_Penalty(@,  4.8056972e-06`_LIMIT_MIN_1e-15 )  
+			   8   2   2   8    1.390207      30.41386      I_Penalty(@,  4.65528871e-06`_LIMIT_MIN_1e-15 )  
+			   8  -2   2   8    1.390207      30.41386      I_Penalty(@,  4.65528871e-06`_LIMIT_MIN_1e-15 )  
+		}  
+''}}} 
+ 
+''{{{ Whewellite 
+hkl_Is   
+	phase_name "Whewellite"   
+ 
+	prm       !p41  1.21351197e-40_LIMIT_MIN_0 min 0 max 1e-15 
+	prm       !p42  1e-15_LIMIT_MIN_0 min 0 max 1e-15 
+	prm       !p43  3.92103008e-18_LIMIT_MIN_0 min 0 max 1e-15 
+	prm       !p44  9.96154308e-16_LIMIT_MIN_0 min 0 max 1e-15 
+	 
+	gauss_fwhm = p41 Tan(Th) + p42 / Cos(Th) ;  
+	lor_fwhm = p43 Tan(Th) + p44 / Cos(Th) ;  
+ 
+	a       6.291976 ''6.290   
+	b       14.612329 '' 14.583   
+	c       10.093738 ''10.116   
+	al 90             ''   
+	be        109.31735_LIMIT_MIN_108.917352 ''109.46   
+	ga 90             ''   
+	volume  875.776 ''   
+	 
+	space_group "P121/c1"  
+	load hkl_m_d_th2 I penalty  
+{  
+	   0   1   1   4    7.979711       5.23847      I_Penalty(@,  1.4873302e-06`_LIMIT_MIN_1e-15 )  
+	   0   2   0   2    7.306164       5.72178      I_Penalty(@,  2.7165273e-06`_LIMIT_MIN_1e-15 )  
+	   1   0   0   2    5.937743       7.04194      I_Penalty(@,  7.49605161e-06`_LIMIT_MIN_1e-15 )  
+	   0   2   1   4    5.797247       7.21282      I_Penalty(@,  8.86533507e-06`_LIMIT_MIN_1e-15 )  
+	   1   1  -1   4    5.558084       7.52362      I_Penalty(@,  3.88414472e-06`_LIMIT_MIN_1e-15 )  
+	   1   1   0   4    5.500926       7.60191      I_Penalty(@,  5.23786692e-06`_LIMIT_MIN_1e-15 )  
+	   0   0   2   2    4.762734       8.78231      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   2  -1   4    4.641347       9.01247      I_Penalty(@,  3.71940037e-07`_LIMIT_MIN_1e-15 )  
+	   1   2   0   4    4.607907       9.07801      I_Penalty(@,  3.66854968e-06`_LIMIT_MIN_1e-15 )  
+	   0   1   2   4    4.528271       9.23801      I_Penalty(@,  2.64158113e-06`_LIMIT_MIN_1e-15 )  
+	   1   0  -2   2    4.515087       9.26504      I_Penalty(@,  1.9461133e-05`_LIMIT_MIN_1e-15 )  
+	   0   3   1   4    4.336702       9.64703      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   1  -2   4    4.313847       9.69826      I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   1   1   4    4.234656       9.88007      I_Penalty(@,  1.00001047e-15`_LIMIT_MIN_1e-15 )  
+	   0   2   2   4    3.989855      10.48792     I_Penalty(@,  1.00239998e-05`_LIMIT_MIN_1e-15 )  
+	   1   2  -2   4    3.840850      10.89601     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   3  -1   4    3.784637      11.05834     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   2   1   4    3.784034      11.06011     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   3   0   4    3.765846      11.11370     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0   4   0   2    3.653082      11.45789     I_Penalty(@,  1.73324389e-05`_LIMIT_MIN_1e-15 )  
+	   0   4   1   4    3.410854      12.27461     I_Penalty(@,  3.62396264e-08`_LIMIT_MIN_1e-15 )  
+	   0   3   2   4    3.405318      12.29464     I_Penalty(@,  1.21177976e-06`_LIMIT_MIN_1e-15 )  
+	   1   3  -2   4    3.311261      12.64528     I_Penalty(@,  1.12007028e-05`_LIMIT_MIN_1e-15 )  
+	   1   3   1   4    3.275039      12.78572     I_Penalty(@,  2.03719583e-05`_LIMIT_MIN_1e-15 )  
+	   1   0   2   2    3.230134      12.96422     I_Penalty(@,  2.56266935e-05`_LIMIT_MIN_1e-15 )  
+	   1   1  -3   4    3.208408      13.05239     I_Penalty(@,  3.14445668e-05`_LIMIT_MIN_1e-15 )  
+	   1   1   2   4    3.153992      13.27859     I_Penalty(@,  1.28199241e-05`_LIMIT_MIN_1e-15 )  
+	   1   4  -1   4    3.121626      13.41689     I_Penalty(@,  1.48553367e-05`_LIMIT_MIN_1e-15 )  
+	   1   4   0   4    3.111391      13.46123     I_Penalty(@,  4.1413301e-06`_LIMIT_MIN_1e-15 )  
+	   0   1   3   4    3.102751      13.49889     I_Penalty(@,  1.17661029e-05`_LIMIT_MIN_1e-15 )  
+	   2   1  -1   4    3.074913      13.62168     I_Penalty(@,  1.08653745e-05`_LIMIT_MIN_1e-15 )  
+	   2   0  -2   2    3.004907      13.94058     I_Penalty(@,  1.00015002e-15`_LIMIT_MIN_1e-15 )  
+	   1   2  -3   4    2.998865      13.96881     I_Penalty(@,  2.51598083e-06`_LIMIT_MIN_1e-15 )  
+	   2   0   0   2    2.968871      14.11064     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   2   2   4    2.954287      14.18066     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   1  -2   4    2.943317      14.23378     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0   2   3   4    2.912050      14.38742     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   1   0   4    2.909428      14.40045     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0   4   2   4    2.898624      14.45441     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   2  -1   4    2.888999      14.50283     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   4  -2   4    2.839951      14.75468     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   4   1   4    2.816999      14.87557     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0   5   1   4    2.793927      14.99912     I_Penalty(@,  4.00165418e-05`_LIMIT_MIN_1e-15 )  
+	   2   2  -2   4    2.779042      15.07992     I_Penalty(@,  4.92483086e-05`_LIMIT_MIN_1e-15 )  
+	   2   2   0   4    2.750463      15.23754     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   3  -3   4    2.725572      15.37753     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   3   2   4    2.691975      15.57063     I_Penalty(@,  7.74074098e-06`_LIMIT_MIN_1e-15 )  
+	   0   3   3   4    2.659904      15.75956     I_Penalty(@,  1.98013015e-05`_LIMIT_MIN_1e-15 )  
+	   2   3  -1   4    2.642302      15.86521     I_Penalty(@,  1.16203155e-05`_LIMIT_MIN_1e-15 )  
+	   1   5  -1   4    2.628195      15.95092     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   5   0   4    2.622078      15.98838     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   1  -3   4    2.606935      16.08186     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   3  -2   4    2.560296      16.37681     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   1   1   4    2.557393      16.39552     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   3   0   4    2.535069      16.54091     I_Penalty(@,  1.13065654e-05`_LIMIT_MIN_1e-15 )  
+	   1   0  -4   2    2.516471      16.66403     I_Penalty(@,  1.74029156e-05`_LIMIT_MIN_1e-15 )  
+	   2   2  -3   4    2.490912      16.83624     I_Penalty(@,  2.03437155e-05`_LIMIT_MIN_1e-15 )  
+	   0   5   2   4    2.490730      16.83748     I_Penalty(@,  2.07137221e-05`_LIMIT_MIN_1e-15 )  
+	   1   1  -4   4    2.479964      16.91112     I_Penalty(@,  9.21731479e-06`_LIMIT_MIN_1e-15 )  
+	   1   5  -2   4    2.453382      17.09571     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   2   1   4    2.449959      17.11977     I_Penalty(@,  1.96117228e-10`_LIMIT_MIN_1e-15 )  
+	   1   4  -3   4    2.444635      17.15734     I_Penalty(@,  1.04453898e-06`_LIMIT_MIN_1e-15 )  
+	   1   1   3   4    2.444147      17.16079     I_Penalty(@,  8.83119705e-07`_LIMIT_MIN_1e-15 )  
+	   1   5   1   4    2.438540      17.20055     I_Penalty(@,  4.19955084e-06`_LIMIT_MIN_1e-15 )  
+	   0   6   0   2    2.435388      17.22298     I_Penalty(@,  6.36905673e-06`_LIMIT_MIN_1e-15 )  
+	   1   4   2   4    2.419832      17.33454     I_Penalty(@,  2.21049597e-05`_LIMIT_MIN_1e-15 )  
+	   0   4   3   4    2.396457      17.50495     I_Penalty(@,  7.84115595e-06`_LIMIT_MIN_1e-15 )  
+	   2   4  -1   4    2.383561      17.60041     I_Penalty(@,  7.52328095e-06`_LIMIT_MIN_1e-15 )  
+	   1   2  -4   4    2.381367      17.61675     I_Penalty(@,  6.24907468e-06`_LIMIT_MIN_1e-15 )  
+	   0   0   4   2    2.379294      17.63222     I_Penalty(@,  6.09831075e-06`_LIMIT_MIN_1e-15 )  
+	   0   6   1   4    2.359491      17.78140     I_Penalty(@,  2.17945348e-05`_LIMIT_MIN_1e-15 )  
+	   0   1   4   4    2.350360      17.85104     I_Penalty(@,  9.43113762e-06`_LIMIT_MIN_1e-15 )  
+	   1   2   3   4    2.348043      17.86881     I_Penalty(@,  8.75263783e-06`_LIMIT_MIN_1e-15 )  
+	   2   3  -3   4    2.327406      18.02856     I_Penalty(@,  9.9970756e-06`_LIMIT_MIN_1e-15 )  
+	   2   4  -2   4    2.320674      18.08130     I_Penalty(@,  7.08006591e-06`_LIMIT_MIN_1e-15 )  
+	   2   4   0   4    2.303954      18.21363     I_Penalty(@,  5.90400237e-06`_LIMIT_MIN_1e-15 )  
+	   2   3   1   4    2.294038      18.29303     I_Penalty(@,  4.70547936e-06`_LIMIT_MIN_1e-15 )  
+	   0   2   4   4    2.264135      18.53674     I_Penalty(@,  5.84287966e-06`_LIMIT_MIN_1e-15 )  
+	   2   0  -4   2    2.257544      18.59134     I_Penalty(@,  9.43086929e-06`_LIMIT_MIN_1e-15 )  
+	   1   6  -1   4    2.257104      18.59500     I_Penalty(@,  1.09829161e-05`_LIMIT_MIN_1e-15 )  
+	   1   6   0   4    2.253226      18.62729     I_Penalty(@,  2.84773244e-05`_LIMIT_MIN_1e-15 )  
+	   1   3  -4   4    2.235716      18.77449     I_Penalty(@,  3.31555225e-06`_LIMIT_MIN_1e-15 )  
+	   2   1  -4   4    2.231074      18.81391     I_Penalty(@,  5.60677405e-06`_LIMIT_MIN_1e-15 )  
+	   2   0   2   2    2.212263      18.97536     I_Penalty(@,  6.69306291e-06`_LIMIT_MIN_1e-15 )  
+	   1   3   3   4    2.209728      18.99732     I_Penalty(@,  2.46214397e-06`_LIMIT_MIN_1e-15 )  
+	   2   1   2   4    2.187337      19.19362     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   5  -3   4    2.184538      19.21844     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0   6   2   4    2.168351      19.36329     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   5   2   4    2.167125      19.37435     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   2  -4   4    2.156924      19.46687     I_Penalty(@,  1.93375471e-06`_LIMIT_MIN_1e-15 )  
+	   0   5   3   4    2.150287      19.52754     I_Penalty(@,  4.39744239e-06`_LIMIT_MIN_1e-15 )  
+	   2   4  -3   4    2.144748      19.57847     I_Penalty(@,  3.0811812e-06`_LIMIT_MIN_1e-15 )  
+	   1   6  -2   4    2.143459      19.59036     I_Penalty(@,  2.4280373e-06`_LIMIT_MIN_1e-15 )  
+	   2   5  -1   4    2.140956      19.61349     I_Penalty(@,  1.54857589e-06`_LIMIT_MIN_1e-15 )  
+	   0   3   4   4    2.139366      19.62821     I_Penalty(@,  1.50071834e-06`_LIMIT_MIN_1e-15 )  
+	   1   6   1   4    2.133539      19.68235     I_Penalty(@,  5.74369088e-06`_LIMIT_MIN_1e-15 )  
+	   2   4   1   4    2.118551      19.82300     I_Penalty(@,  2.54344166e-06`_LIMIT_MIN_1e-15 )  
+	   2   2   2   4    2.117328      19.83456     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   5  -2   4    2.095035      20.04779     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   0  -2   2    2.088915      20.10714     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   5   0   4    2.082708      20.16768     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   4  -4   4    2.072358      20.26946     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   1  -2   4    2.067892      20.31371     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   1  -1   4    2.058980      20.40257     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   3  -4   4    2.051610      20.47665     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   4   3   4    2.048236      20.51074     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0   7   1   4    2.039086      20.60379     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   3   2   4    2.014239      20.86078     I_Penalty(@,  2.49319424e-06`_LIMIT_MIN_1e-15 )  
+	   3   2  -2   4    2.008437      20.92172     I_Penalty(@,  3.46688241e-06`_LIMIT_MIN_1e-15 )  
+	   3   2  -1   4    2.000270      21.00811     I_Penalty(@,  4.04491517e-06`_LIMIT_MIN_1e-15 )  
+	   1   1  -5   4    1.999645      21.01475     I_Penalty(@,  3.84566957e-06`_LIMIT_MIN_1e-15 )  
+	   0   4   4   4    1.994928      21.06501     I_Penalty(@,  4.08250351e-06`_LIMIT_MIN_1e-15 )  
+	   1   0   4   2    1.994061      21.07426     I_Penalty(@,  4.57168211e-06`_LIMIT_MIN_1e-15 )  
+	   3   1  -3   4    1.984707      21.17473     I_Penalty(@,  6.56816138e-06`_LIMIT_MIN_1e-15 )  
+	   3   0   0   2    1.979248      21.23382     I_Penalty(@,  4.1614173e-06`_LIMIT_MIN_1e-15 )  
+	   1   1   4   4    1.975749      21.27185     I_Penalty(@,  4.31339185e-06`_LIMIT_MIN_1e-15 )  
+	   1   7  -1   4    1.971909      21.31377     I_Penalty(@,  6.92181849e-06`_LIMIT_MIN_1e-15 )  
+	   1   7   0   4    1.969321      21.34210     I_Penalty(@,  1.02467444e-05`_LIMIT_MIN_1e-15 )  
+	   2   5  -3   4    1.962881      21.41294     I_Penalty(@,  1.22570489e-05`_LIMIT_MIN_1e-15 )  
+	   3   1   0   4    1.961337      21.43000     I_Penalty(@,  1.07504634e-05`_LIMIT_MIN_1e-15 )  
+	   1   6  -3   4    1.957161      21.47627     I_Penalty(@,  5.59562261e-06`_LIMIT_MIN_1e-15 )  
+	   1   2  -5   4    1.945735      21.60390     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   6   2   4    1.944609      21.61656     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   5   1   4    1.942740      21.63761     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   2  -3   4    1.932416      21.75461     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0   6   3   4    1.931965      21.75975     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   6  -1   4    1.925635      21.83216     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   4  -4   4    1.923700      21.85439     I_Penalty(@,  1.3391867e-06`_LIMIT_MIN_1e-15 )  
+	   3   3  -2   4    1.920425      21.89212     I_Penalty(@,  2.14235664e-06`_LIMIT_MIN_1e-15 )  
+	   1   2   4   4    1.919810      21.89921     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   3  -1   4    1.912673      21.98194     I_Penalty(@,  1.23789034e-05`_LIMIT_MIN_1e-15 )  
+	   3   2   0   4    1.911899      21.99096     I_Penalty(@,  1.69966545e-05`_LIMIT_MIN_1e-15 )  
+	   0   7   2   4    1.910389      22.00855     I_Penalty(@,  1.37398596e-05`_LIMIT_MIN_1e-15 )  
+	   1   5  -4   4    1.906934      22.04893     I_Penalty(@,  2.48473412e-05`_LIMIT_MIN_1e-15 )  
+	   2   1  -5   4    1.901085      22.11761     I_Penalty(@,  1.96281789e-05`_LIMIT_MIN_1e-15 )  
+	   1   7  -2   4    1.894770      22.19227     I_Penalty(@,  5.43200181e-06`_LIMIT_MIN_1e-15 )  
+	   2   6  -2   4    1.892319      22.22138     I_Penalty(@,  1.97480514e-06`_LIMIT_MIN_1e-15 )  
+	   2   4   2   4    1.892017      22.22497     I_Penalty(@,  2.35568427e-06`_LIMIT_MIN_1e-15 )  
+	   1   5   3   4    1.890731      22.24027     I_Penalty(@,  1.14253158e-06`_LIMIT_MIN_1e-15 )  
+	   0   1   5   4    1.889106      22.25965     I_Penalty(@,  6.31240281e-07`_LIMIT_MIN_1e-15 )  
+	   1   7   1   4    1.887907      22.27397     I_Penalty(@,  5.53485273e-07`_LIMIT_MIN_1e-15 )  
+	   2   6   0   4    1.882923      22.33369     I_Penalty(@,  1.55182479e-06`_LIMIT_MIN_1e-15 )  
+	   1   3  -5   4    1.864973      22.55145     I_Penalty(@,  3.23221658e-06`_LIMIT_MIN_1e-15 )  
+	   2   1   3   4    1.864828      22.55323     I_Penalty(@,  3.07964658e-06`_LIMIT_MIN_1e-15 )  
+	   2   2  -5   4    1.854581      22.67948     I_Penalty(@,  4.45285842e-06`_LIMIT_MIN_1e-15 )  
+	   3   0  -4   2    1.852996      22.69915     I_Penalty(@,  3.1275204e-06`_LIMIT_MIN_1e-15 )  
+	   3   3  -3   4    1.852695      22.70288     I_Penalty(@,  2.94274432e-06`_LIMIT_MIN_1e-15 )  
+	   0   5   4   4    1.846089      22.78521     I_Penalty(@,  5.76717114e-06`_LIMIT_MIN_1e-15 )  
+	   1   3   4   4    1.845402      22.79380     I_Penalty(@,  6.48235466e-06`_LIMIT_MIN_1e-15 )  
+	   0   2   5   4    1.843455      22.81820     I_Penalty(@,  8.58398672e-06`_LIMIT_MIN_1e-15 )  
+	   3   1  -4   4    1.838274      22.88338     I_Penalty(@,  9.60589496e-06`_LIMIT_MIN_1e-15 )  
+	   3   3   0   4    1.833642      22.94197     I_Penalty(@,  3.16617122e-07`_LIMIT_MIN_1e-15 )  
+	   0   8   0   2    1.826541      23.03238     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   2   3   4    1.821009      23.10331     I_Penalty(@,  6.47640334e-05`_LIMIT_MIN_1e-15 )  
+	   3   4  -2   4    1.813378      23.20188     I_Penalty(@,  1.64324562e-05`_LIMIT_MIN_1e-15 )  
+	   3   4  -1   4    1.807557      23.27764     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   1   1   4    1.807360      23.28022     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   2  -4   4    1.796129      23.42784     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   6  -3   4    1.793859      23.45790     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0   8   1   4    1.792985      23.46951     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   5  -4   4    1.786575      23.55491     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   3  -5   4    1.784124      23.58773     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   6   1   4    1.777594      23.67563     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0   3   5   4    1.774211      23.72143     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   4  -5   4    1.767444      23.81358     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   2   1   4    1.766829      23.82200     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   5   2   4    1.763879      23.86243     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   7  -3   4    1.762410      23.88260     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   4  -3   4    1.756500      23.96416     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   3   3   4    1.754174      23.99640     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   7   2   4    1.753228      24.00954     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   6  -4   4    1.750281      24.05057     I_Penalty(@,  3.14064331e-06`_LIMIT_MIN_1e-15 )  
+	   1   4   4   4    1.750042      24.05390     I_Penalty(@,  2.93044027e-06`_LIMIT_MIN_1e-15 )  
+	   1   8  -1   4    1.747609      24.08789     I_Penalty(@,  4.05209896e-06`_LIMIT_MIN_1e-15 )  
+	   1   8   0   4    1.745807      24.11313     I_Penalty(@,  3.52366524e-06`_LIMIT_MIN_1e-15 )  
+	   0   7   3   4    1.744277      24.13461     I_Penalty(@,  2.79185197e-06`_LIMIT_MIN_1e-15 )  
+	   3   4   0   4    1.740238      24.19146     I_Penalty(@,  1.48936891e-06`_LIMIT_MIN_1e-15 )  
+	   2   7  -1   4    1.739285      24.20492     I_Penalty(@,  1.34362553e-06`_LIMIT_MIN_1e-15 )  
+	   1   6   3   4    1.737494      24.23025     I_Penalty(@,  1.23830331e-06`_LIMIT_MIN_1e-15 )  
+	   3   3  -4   4    1.731902      24.30968     I_Penalty(@,  2.45939913e-06`_LIMIT_MIN_1e-15 )  
+	   2   7  -2   4    1.714393      24.56179     I_Penalty(@,  1.37258836e-05`_LIMIT_MIN_1e-15 )  
+	   2   7   0   4    1.707619      24.66076     I_Penalty(@,  1.62767043e-05`_LIMIT_MIN_1e-15 )  
+	   3   3   1   4    1.706142      24.68244     I_Penalty(@,  1.60015625e-05`_LIMIT_MIN_1e-15 )  
+	   0   8   2   4    1.705427      24.69296     I_Penalty(@,  1.63096391e-05`_LIMIT_MIN_1e-15 )  
+	   0   6   4   4    1.702659      24.73374     I_Penalty(@,  1.88261883e-05`_LIMIT_MIN_1e-15 )  
+	   3   5  -2   4    1.699424      24.78157     I_Penalty(@,  1.85575294e-05`_LIMIT_MIN_1e-15 )  
+	   2   4  -5   4    1.697739      24.80656     I_Penalty(@,  1.66840179e-05`_LIMIT_MIN_1e-15 )  
+	   3   5  -1   4    1.694467      24.85522     I_Penalty(@,  1.37359339e-05`_LIMIT_MIN_1e-15 )  
+	   1   8  -2   4    1.693236      24.87358     I_Penalty(@,  1.30972186e-05`_LIMIT_MIN_1e-15 )  
+	   0   4   5   4    1.689191      24.93411     I_Penalty(@,  1.06896839e-05`_LIMIT_MIN_1e-15 )  
+	   1   8   1   4    1.688333      24.94697     I_Penalty(@,  1.02355282e-05`_LIMIT_MIN_1e-15 )  
+	   1   0  -6   2    1.678502      25.09546     I_Penalty(@,  7.17006583e-06`_LIMIT_MIN_1e-15 )  
+	   2   4   3   4    1.671871      25.19664     I_Penalty(@,  9.73276168e-06`_LIMIT_MIN_1e-15 )  
+	   3   1  -5   4    1.667537      25.26320     I_Penalty(@,  6.40149361e-06`_LIMIT_MIN_1e-15 )  
+	   1   1  -6   4    1.666616      25.27739     I_Penalty(@,  6.81468286e-06`_LIMIT_MIN_1e-15 )  
+	   1   5  -5   4    1.660931      25.36534     I_Penalty(@,  7.41868264e-06`_LIMIT_MIN_1e-15 )  
+	   2   6  -4   4    1.655631      25.44791     I_Penalty(@,  4.69315151e-06`_LIMIT_MIN_1e-15 )  
+	   3   4  -4   4    1.652555      25.49607     I_Penalty(@,  3.39722748e-06`_LIMIT_MIN_1e-15 )  
+	   3   5  -3   4    1.652342      25.49942     I_Penalty(@,  3.32552123e-06`_LIMIT_MIN_1e-15 )  
+	   1   1   5   4    1.650555      25.52749     I_Penalty(@,  2.78078985e-06`_LIMIT_MIN_1e-15 )  
+	   2   0  -6   2    1.647162      25.58096     I_Penalty(@,  1.5045162e-06`_LIMIT_MIN_1e-15 )  
+	   1   5   4   4    1.645015      25.61491     I_Penalty(@,  2.03610958e-06`_LIMIT_MIN_1e-15 )  
+	   3   0   2   2    1.644331      25.62576     I_Penalty(@,  1.65362128e-06`_LIMIT_MIN_1e-15 )  
+	   2   7  -3   4    1.639683      25.69963     I_Penalty(@,  2.12845722e-07`_LIMIT_MIN_1e-15 )  
+	   3   5   0   4    1.638783      25.71399     I_Penalty(@,  3.41280684e-09`_LIMIT_MIN_1e-15 )  
+	   3   2  -5   4    1.637520      25.73417     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   2  -6   4    1.635887      25.76029     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   6   2   4    1.635017      25.77423     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   1  -6   4    1.634689      25.77949     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   1   2   4    1.634017      25.79028     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   4   1   4    1.630132      25.85281     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   7   1   4    1.627888      25.88907     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   2   5   4    1.619844      26.01987     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   0   4   2    1.615067      26.09820     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   7  -4   4    1.606648      26.23738     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   2  -6   4    1.605291      26.25996     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   5  -5   4    1.604840      26.26747     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   2   2   4    1.604204      26.27807     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   1   4   4    1.603145      26.29574     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0   9   1   4    1.600509      26.33983     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   8  -3   4    1.596922      26.40007     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   7   3   4    1.596786      26.40236     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0   5   5   4    1.595942      26.41657     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   8   2   4    1.589947      26.51798     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   3  -5   4    1.587578      26.55828     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   3  -6   4    1.586919      26.56952     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0   0   6   2    1.586125      26.58306     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   6  -2   4    1.585559      26.59272     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0   8   3   4    1.583262      26.63201     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   6  -1   4    1.581532      26.66169     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   5   3   4    1.581311      26.66547     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   8  -1   4    1.579526      26.69616     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0   1   6   4    1.578290      26.71745     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   2   4   4    1.576996      26.73979     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   4   0  -2   2    1.572671      26.81469     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   3   5   4    1.572262      26.82181     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0   7   4   4    1.569750      26.86552     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   5  -4   4    1.567401      26.90654     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   9  -1   4    1.566101      26.92930     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   4   1  -2   4    1.564937      26.94970     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   9   0   4    1.563641      26.97247     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   8  -2   4    1.560813      27.02227     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   3  -6   4    1.558530      27.06260     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   3   2   4    1.557948      27.07291     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   8   0   4    1.555696      27.11284     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   6  -5   4    1.554160      27.14015     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0   2   6   4    1.551376      27.18979     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   4   1  -3   4    1.547983      27.25054     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   6  -3   4    1.547116      27.26610     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   5   1   4    1.545855      27.28877     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   6   4   4    1.542861      27.34274     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   4   1  -1   4    1.538046      27.43002     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   4   2  -2   4    1.537456      27.44074     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   6   0   4    1.536753      27.45355     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0   9   2   4    1.535969      27.46784     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   7  -4   4    1.532990      27.52226     I_Penalty(@,  1.24337403e-07`_LIMIT_MIN_1e-15 )  
+	   2   3   4   4    1.532669      27.52814     I_Penalty(@,  9.78034311e-08`_LIMIT_MIN_1e-15 )  
+	   1   9  -2   4    1.527816      27.61732     I_Penalty(@,  3.80313046e-07`_LIMIT_MIN_1e-15 )  
+	   3   4  -5   4    1.525207      27.66550     I_Penalty(@,  2.21460951e-06`_LIMIT_MIN_1e-15 )  
+	   1   4  -6   4    1.524502      27.67854     I_Penalty(@,  1.61807553e-06`_LIMIT_MIN_1e-15 )  
+	   4   2  -3   4    1.524211      27.68393     I_Penalty(@,  3.94637909e-06`_LIMIT_MIN_1e-15 )  
+	   1   9   1   4    1.522564      27.71448     I_Penalty(@,  2.49027283e-06`_LIMIT_MIN_1e-15 )  
+	   2   7   2   4    1.518267      27.79448     I_Penalty(@,  4.77248134e-06`_LIMIT_MIN_1e-15 )  
+	   4   2  -1   4    1.513106      27.89121     I_Penalty(@,  5.53548238e-06`_LIMIT_MIN_1e-15 )  
+	   1   4   5   4    1.512180      27.90863     I_Penalty(@,  5.98562034e-06`_LIMIT_MIN_1e-15 )  
+	   0   3   6   4    1.509424      27.96063     I_Penalty(@,  7.63166725e-06`_LIMIT_MIN_1e-15 )  
+	   3   0  -6   2    1.506511      28.01579     I_Penalty(@,  6.51870865e-06`_LIMIT_MIN_1e-15 )  
+	   2   6  -5   4    1.505029      28.04394     I_Penalty(@,  7.51332942e-06`_LIMIT_MIN_1e-15 )  
+	   4   0  -4   2    1.503807      28.06720     I_Penalty(@,  5.3900695e-06`_LIMIT_MIN_1e-15 )  
+	   2   8  -3   4    1.502454      28.09300     I_Penalty(@,  5.75756359e-06`_LIMIT_MIN_1e-15 )  
+	   2   4  -6   4    1.500529      28.12978     I_Penalty(@,  6.0384967e-06`_LIMIT_MIN_1e-15 )  
+	   0   6   5   4    1.499952      28.14082     I_Penalty(@,  5.77524517e-06`_LIMIT_MIN_1e-15 )  
+	   3   1  -6   4    1.499432      28.15077     I_Penalty(@,  5.87286681e-06`_LIMIT_MIN_1e-15 )  
+	   3   4   2   4    1.497109      28.19536     I_Penalty(@,  5.93682934e-06`_LIMIT_MIN_1e-15 )  
+	   4   3  -2   4    1.496594      28.20526     I_Penalty(@,  5.77322386e-06`_LIMIT_MIN_1e-15 )  
+	   4   1  -4   4    1.494692      28.24190     I_Penalty(@,  5.81213599e-06`_LIMIT_MIN_1e-15 )  
+	   2   8   1   4    1.494574      28.24417     I_Penalty(@,  5.78077577e-06`_LIMIT_MIN_1e-15 )  
+	   2   6   3   4    1.488349      28.36478     I_Penalty(@,  5.68243641e-06`_LIMIT_MIN_1e-15 )  
+	   4   0   0   2    1.484436      28.44112     I_Penalty(@,  3.21766467e-06`_LIMIT_MIN_1e-15 )  
+	   4   3  -3   4    1.482847      28.47222     I_Penalty(@,  2.29179138e-06`_LIMIT_MIN_1e-15 )  
+	   1   8  -4   4    1.478200      28.56363     I_Penalty(@,  1.59077906e-06`_LIMIT_MIN_1e-15 )  
+	   4   1   0   4    1.477143      28.58451     I_Penalty(@,  1.45815589e-06`_LIMIT_MIN_1e-15 )  
+	   3   7  -2   4    1.476835      28.59061     I_Penalty(@,  1.37662292e-06`_LIMIT_MIN_1e-15 )  
+	   3   2  -6   4    1.476577      28.59571     I_Penalty(@,  8.54437452e-08`_LIMIT_MIN_1e-15 )  
+	   3   6  -4   4    1.474672      28.63343     I_Penalty(@,  3.29105244e-07`_LIMIT_MIN_1e-15 )  
+	   2   4   4   4    1.474106      28.64466     I_Penalty(@,  1.52460427e-06`_LIMIT_MIN_1e-15 )  
+	   4   3  -1   4    1.474079      28.64520     I_Penalty(@,  9.27064199e-08`_LIMIT_MIN_1e-15 )  
+	   4   2  -4   4    1.473322      28.66023     I_Penalty(@,  1.00728195e-15`_LIMIT_MIN_1e-15 )  
+	   3   7  -1   4    1.471659      28.69332     I_Penalty(@,  1.0087608e-15`_LIMIT_MIN_1e-15 )  
+	   1   8   3   4    1.470615      28.71412     I_Penalty(@,  1.00990586e-15`_LIMIT_MIN_1e-15 )  
+	   3   1   3   4    1.467386      28.77865     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0  10   0   2    1.461233      28.90248     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   6   1   4    1.458672      28.95432     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   5  -5   4    1.456025      29.00812     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   5  -6   4    1.455839      29.01191     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0   4   6   4    1.455516      29.01848     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   9  -3   4    1.454904      29.03096     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   4   2   0   4    1.454714      29.03484     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   7  -5   4    1.451117      29.10838     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   9   2   4    1.450650      29.11797     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0   8   4   4    1.449312      29.14545     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   7  -3   4    1.445681      29.22027     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   4   4  -2   4    1.445567      29.22263     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0   9   3   4    1.445379      29.22653     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   2   3   4    1.444500      29.24471     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0  10   1   4    1.444337      29.24806     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   5   5   4    1.444182      29.25128     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   9  -1   4    1.442722      29.28154     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   7   4   4    1.441908      29.29845     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   3  -6   4    1.437949      29.38092     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   4   3  -4   4    1.436277      29.41590     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   7   0   4    1.435702      29.42794     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   5  -6   4    1.433519      29.47378     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   4   4  -3   4    1.433065      29.48331     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   5   2   4    1.432127      29.50306     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   9  -2   4    1.428420      29.58138     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   1  -7   4    1.426822      29.61526     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   4   4  -1   4    1.424495      29.66476     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   9   0   4    1.424248      29.67002     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   1  -7   4    1.422185      29.71404     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   4   3   0   4    1.420894      29.74166     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   8  -4   4    1.419975      29.76135     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   0   6   2    1.419956      29.76176     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1  10  -1   4    1.419866      29.76370     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1  10   0   4    1.418899      29.78445     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   4   1  -5   4    1.414224      29.88520     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   1   6   4    1.414103      29.88782     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   7  -5   4    1.413569      29.89936     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   5   4   4    1.412104      29.93112     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   3   3   3   4    1.411552      29.94309     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   8   2   4    1.408500      30.00951     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   1   2  -7   4    1.407173      30.03845     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   0   7   5   4    1.406844      30.04566     I_Penalty(@,  1e-15`_LIMIT_MIN_1e-15 )  
+	   2   2  -7   4    1.402398      30.14316     I_Penalty(@,  8.67009075e-07`_LIMIT_MIN_1e-15 )  
+	   2   1   5   4    1.399403      30.20921     I_Penalty(@,  1.89955646e-06`_LIMIT_MIN_1e-15 )  
+	   4   2  -5   4    1.397114      30.25990     I_Penalty(@,  4.84830275e-06`_LIMIT_MIN_1e-15 )  
+	   0  10   2   4    1.396964      30.26323     I_Penalty(@,  3.22625125e-06`_LIMIT_MIN_1e-15 )  
+	   2   7   3   4    1.395029      30.30620     I_Penalty(@,  3.12437089e-06`_LIMIT_MIN_1e-15 )  
+	   0   5   6   4    1.394763      30.31212     I_Penalty(@,  4.6160419e-06`_LIMIT_MIN_1e-15 )  
+	   1   2   6   4    1.394646      30.31471     I_Penalty(@,  4.78455375e-06`_LIMIT_MIN_1e-15 )  
+	   3   4  -6   4    1.391701      30.38042     I_Penalty(@,  5.04036149e-06`_LIMIT_MIN_1e-15 )  
+	   4   1   1   4    1.391558      30.38362     I_Penalty(@,  5.08539143e-06`_LIMIT_MIN_1e-15 )  
+	   4   4  -4   4    1.390240      30.41312     I_Penalty(@,  4.5548205e-06`_LIMIT_MIN_1e-15 )  
+	   1  10  -2   4    1.389521      30.42923     I_Penalty(@,  4.66102686e-06`_LIMIT_MIN_1e-15 )  
+	   3   7  -4   4    1.387522      30.47413     I_Penalty(@,  4.74834028e-06`_LIMIT_MIN_1e-15 )  
+	   1  10   1   4    1.385783      30.51331     I_Penalty(@,  4.56317129e-06`_LIMIT_MIN_1e-15 )  
+	   4   5  -2   4    1.384882      30.53363     I_Penalty(@,  5.01552779e-06`_LIMIT_MIN_1e-15 )  
+''}}} 
+ 
+
+ 
+ 
