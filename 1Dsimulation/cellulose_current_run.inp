@@ -1,0 +1,164 @@
+#include aniso.inc
+'-------------------------------------------------------------- 
+'Input File for simulation
+'-------------------------------------------------------------- 
+
+iters 0 
+
+  
+
+'-------------------------------------------------------------- 
+'Information on datafile etc here 
+'Check that default weighting is appropriate for your data 
+'-------------------------------------------------------------- 
+yobs_eqn !temp_calc.xy = X; min 1.5 max 15 del 0.01
+Out_X_Ycalc( temp_simulated.xy )
+
+LP_Factor( 90) 'change the LP correction  or lh value if required
+Zero_Error(, 0)
+
+lam ymin_on_ymax 0.000001 la 1.0 lo 0.35465883 lh 0.0000001 ''0.729318814
+	 
+	
+   	
+	
+'''From Al2O3
+''	 prm        p1  5.10722575e-22` min 0 
+''    prm        p2  0.0123640792` min 0 
+''    prm        p3  0.185768405` min 0 
+''    prm        p4  0.0211531733` min 0 
+''   
+''   lor_fwhm =   p1 Tan(Th) + p2/Cos(Th) ;    
+''   gauss_fwhm = p3 Tan(Th) + p4/Cos(Th) ;   
+''   
+''   Zero_Error(zero,-0.00169486491`)
+
+str 
+	  phase_name Cellulose_Ibeta_1  
+ 
+      Known_Weight_Percent(0)
+      space_group "P1121"  
+		a         8.177942_0.015588_LIMIT_MIN_8.1 min 8.1 max 8.6 
+		b         7.937264_0.155401_LIMIT_MIN_7.75834024 min 7.20 max 8.10 
+		c        10.395400_0.236426_LIMIT_MIN_10.1919561 min 10.0 max 10.4 
+		al   90        ''al   90      
+		be   90        ''be   90      
+		ga       95.28627_0.77016_LIMIT_MIN_94.886269 min 94 max 108 
+		  
+		volume  671.901 
+		 
+		CS_G(   D0G_1, 0.5 )
+		CS_L(   D0L_1, 9999 )
+        ''AnisoCS(1, 0, 0, 1, 1, 0, 0, rx_1, 0.5, ry_1, 0.5, rz_1, 0.5, pc1, 0, tc1, 0, nc1,  0,  0)
+
+		Preferred_Orientation(ca1, 0.2, anga_1, 0 0 1)
+      
+  
+		prm  beqC  2.3` min 0.5 max 10  
+		prm  beqO  1.2` min 0.5 max 10  
+		prm  beqH  3` min 0.5 max 10  
+		  
+ 
+		site C11    x 0.014         y -0.042        z 0.0433        occ C    1          beq =beqC;     
+		site H11    x 0.1382        y -0.0188       z 0.0598        occ H    1          beq =beqH;     
+		site C21    x -0.026        y -0.184        z -0.0516       occ C    1          beq =beqC;     
+		site H21    x -0.1508       y -0.2177       z -0.0546       occ H    1          beq =beqH;     
+		site C31    x 0.040         y -0.137        z -0.1848       occ C    1          beq =beqC;     
+		site H31    x 0.1667        y -0.1323       z -0.1840       occ H    1          beq =beqH;     
+		site C41    x -0.007        y 0.030         z -0.2250       occ C    1          beq =beqC;     
+		site H41    x -0.1316       y 0.0176        z -0.2425       occ H    1          beq =beqH;     
+		site C51    x 0.026         y 0.159         z -0.1232       occ C    1          beq =beqC;     
+		site H51    x 0.1507        y 0.1821        z -0.1090       occ H    1          beq =beqH;     
+		site C61    x -0.047        y 0.319         z -0.153        occ C    1          beq =beqC;     
+		site H61A   x -0.1672       y 0.2959        z -0.1778       occ H    1          beq =beqH;     
+		site H61B   x -0.0407       y 0.3872        z -0.0765       occ H    1          beq =beqH;     
+		site O21    x 0.061         y -0.314        z -0.0003       occ O    1          beq =beqO;     
+		site O31    x -0.027        y -0.261        z -0.2759       occ O    1          beq =beqO;     
+		site O11    x 0.079         y 0.086         z -0.3424       occ O    1          beq =beqO;     
+		site O51    x -0.056        y 0.099         z -0.0053       occ O    1          beq =beqO;     
+		site O61    x 0.048         y 0.403         z -0.254        occ O    1          beq =beqO;     
+		site C12    x 0.533         y 0.455         z 0.3043        occ C    1          beq =beqC;     
+		site H12    x 0.6577        y 0.4616        z 0.3200        occ H    1          beq =beqH;     
+		site C22    x 0.475         y 0.3178        z 0.2094        occ C    1          beq =beqC;     
+		site H22    x 0.3480        y 0.3058        z 0.2052        occ H    1          beq =beqH;     
+		site C32    x 0.545         y 0.363         z 0.0765        occ C    1          beq =beqC;     
+		site H32    x 0.6716        y 0.3753        z 0.0793        occ H    1          beq =beqH;     
+		site C42    x 0.482         y 0.526         z 0.0375        occ C    1          beq =beqC;     
+		site H42    x 0.3561        y 0.5139        z 0.0289        occ H    1          beq =beqH;     
+		site C52    x 0.541         y 0.6574        z 0.1388        occ C    1          beq =beqC;     
+		site H52    x 0.6670        y 0.6830        z 0.1370        occ H    1          beq =beqH;     
+		site C62    x 0.452         y 0.815         z 0.1125        occ C    1          beq =beqC;     
+		site H62A   x 0.3341        y 0.7843        z 0.0847        occ H    1          beq =beqH;     
+		site H62B   x 0.4491        y 0.8778        z 0.1916        occ H    1          beq =beqH;     
+		site O22    x 0.528         y 0.166         z 0.2520        occ O    1          beq =beqO;     
+		site O32    x 0.486         y 0.233         z -0.0081       occ O    1          beq =beqO;     
+		site O12    x 0.563         y 0.586         z -0.0806       occ O    1          beq =beqO;     
+		site O52    x 0.485         y 0.6070        z 0.2639        occ O    1          beq =beqO;     
+		site O62    x 0.542         y 0.914         z 0.017         occ O    1          beq =beqO;   
+
+	str 
+
+    phase_name Cellulose_Ibeta_2 
+	scale = 1e-06;
+    space_group "P1121"
+
+    a  8.323771
+    b  7.171177
+    c  10.325429
+    al 90
+    be 90
+    ga 96.73655
+           
+    volume 612.082
+
+    ' Crystallite-size broadening
+    AnisoCS(1, 0, 0, 1, 1, 0, 0, rx_2, 1.5, ry_2, 1.5, rz_2, 8, pc2, 0, tc2, 0, nc2,  0,  0)	    
+
+    ' Preferred orientation
+    PO_Two_Directions(ca1_2, 0.9, ang1_2, 0 0 1,
+                  ca2_2, 1, ang2_2, 1 0 0,
+                  w1c_2, 1)
+
+    prm  beqC_2  2.3` 
+	prm  beqO_2  1.2` 
+	prm  beqH_2  3`   
+	 
+	site C11    x 0.014         y -0.042        z 0.0433        occ C    1          beq =beqC_2;    
+	site H11    x 0.1382        y -0.0188       z 0.0598        occ H    1          beq =beqH_2;    
+	site C21    x -0.026        y -0.184        z -0.0516       occ C    1          beq =beqC_2;    
+	site H21    x -0.1508       y -0.2177       z -0.0546       occ H    1          beq =beqH_2;    
+	site C31    x 0.040         y -0.137        z -0.1848       occ C    1          beq =beqC_2;    
+	site H31    x 0.1667        y -0.1323       z -0.1840       occ H    1          beq =beqH_2;    
+	site C41    x -0.007        y 0.030         z -0.2250       occ C    1          beq =beqC_2;    
+	site H41    x -0.1316       y 0.0176        z -0.2425       occ H    1          beq =beqH_2;    
+	site C51    x 0.026         y 0.159         z -0.1232       occ C    1          beq =beqC_2;    
+	site H51    x 0.1507        y 0.1821        z -0.1090       occ H    1          beq =beqH_2;    
+	site C61    x -0.047        y 0.319         z -0.153        occ C    1          beq =beqC_2;    
+	site H61A   x -0.1672       y 0.2959        z -0.1778       occ H    1          beq =beqH_2;    
+	site H61B   x -0.0407       y 0.3872        z -0.0765       occ H    1          beq =beqH_2;    
+	site O21    x 0.061         y -0.314        z -0.0003       occ O    1          beq =beqO_2;    
+	site O31    x -0.027        y -0.261        z -0.2759       occ O    1          beq =beqO_2;    
+	site O11    x 0.079         y 0.086         z -0.3424       occ O    1          beq =beqO_2;    
+	site O51    x -0.056        y 0.099         z -0.0053       occ O    1          beq =beqO_2;    
+	site O61    x 0.048         y 0.403         z -0.254        occ O    1          beq =beqO_2;    
+	site C12    x 0.533         y 0.455         z 0.3043        occ C    1          beq =beqC_2;    
+	site H12    x 0.6577        y 0.4616        z 0.3200        occ H    1          beq =beqH_2;    
+	site C22    x 0.475         y 0.3178        z 0.2094        occ C    1          beq =beqC_2;    
+	site H22    x 0.3480        y 0.3058        z 0.2052        occ H    1          beq =beqH_2;    
+	site C32    x 0.545         y 0.363         z 0.0765        occ C    1          beq =beqC_2;    
+	site H32    x 0.6716        y 0.3753        z 0.0793        occ H    1          beq =beqH_2;    
+	site C42    x 0.482         y 0.526         z 0.0375        occ C    1          beq =beqC_2;    
+	site H42    x 0.3561        y 0.5139        z 0.0289        occ H    1          beq =beqH_2;    
+	site C52    x 0.541         y 0.6574        z 0.1388        occ C    1          beq =beqC_2;    
+	site H52    x 0.6670        y 0.6830        z 0.1370        occ H    1          beq =beqH_2;    
+	site C62    x 0.452         y 0.815         z 0.1125        occ C    1          beq =beqC_2;    
+	site H62A   x 0.3341        y 0.7843        z 0.0847        occ H    1          beq =beqH_2;    
+	site H62B   x 0.4491        y 0.8778        z 0.1916        occ H    1          beq =beqH_2;    
+	site O22    x 0.528         y 0.166         z 0.2520        occ O    1          beq =beqO_2;    
+	site O32    x 0.486         y 0.233         z -0.0081       occ O    1          beq =beqO_2;    
+	site O12    x 0.563         y 0.586         z -0.0806       occ O    1          beq =beqO_2;    
+	site O52    x 0.485         y 0.6070        z 0.2639        occ O    1          beq =beqO_2;    
+	site O62    x 0.542         y 0.914         z 0.017         occ O    1          beq =beqO_2;     
+ 
+
+
